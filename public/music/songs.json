@@ -1,0 +1,9 @@
+[
+  { "id": "chalre-chalre",   "title": "Chalre Chalre Waal", "emoji": "💃", "desc": "Bollywood pick" },
+  { "id": "galliyan-returns", "title": "Galliyan Returns",  "emoji": "🌆", "desc": "Bollywood pick" },
+  { "id": "happy-birthday",  "title": "Happy Birthday",     "emoji": "🎂", "desc": "Birthday special" },
+  { "id": "guzaris",         "title": "Guzaris",            "emoji": "🌹", "desc": "Bollywood pick" },
+  { "id": "sammi-meri-waar", "title": "Sammi Meri Waar",    "emoji": "🎤", "desc": "Bollywood pick" },
+  { "id": "majaal",          "title": "Majaal",             "emoji": "✨", "desc": "Bollywood pick" },
+  { "id": "ruposh",          "title": "Ruposh",             "emoji": "🌙", "desc": "Bollywood pick" }
+]

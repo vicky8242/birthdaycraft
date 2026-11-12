@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BirthdayBliss – Create Magical Birthday Wishes 🎂</title>
+  <meta name="description" content="Create heartfelt, personalized birthday wish videos for your loved ones. Add photos, personal messages and share magical moments." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Nunito:wght@300;400;500;600;700;800&family=Dancing+Script:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Floating Particles Background -->
+  <div class="particles-bg" id="particlesBg"></div>
+
+  <!-- ========== LANDING PAGE ========== -->
+  <div id="landingPage" class="page active">
+    <nav class="navbar">
+      <div class="logo">
+        <span class="logo-icon">🎂</span>
+        <span class="logo-text">BirthdayBliss</span>
+      </div>
+      <button class="btn-nav" onclick="startCreating()">Create Your Wish ✨</button>
+    </nav>
+
+    <section class="hero">
+      <div class="hero-content">
+        <div class="hero-badge">💝 Make Every Birthday Magical</div>
+        <h1 class="hero-title">
+          Send a <span class="gradient-text">Birthday Wish</span><br/>
+          They'll Never Forget
+        </h1>
+        <p class="hero-subtitle">
+          Create a personalized birthday video with photos, heartfelt messages,<br/>
+          and magical animations — then share it with just a link 🎈
+        </p>
+        <div class="hero-buttons">
+          <button class="btn-primary" onclick="startCreating()">
+            <span>✨ Start Creating</span>
+            <div class="btn-shine"></div>
+          </button>
+          <button class="btn-secondary" onclick="showDemo()">
+            👁️ See Demo
+          </button>
+        </div>
+        <div class="hero-stats">
+          <div class="stat"><span class="stat-num">50K+</span><span class="stat-label">Wishes Sent</span></div>
+          <div class="stat-divider"></div>
+          <div class="stat"><span class="stat-num">4.9★</span><span class="stat-label">Rating</span></div>
+          <div class="stat-divider"></div>
+          <div class="stat"><span class="stat-num">100%</span><span class="stat-label">Heartfelt</span></div>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="hero-card floating">
+          <img src="assets/hero-banner.jpg" alt="Birthday celebration" class="hero-img" />
+          <div class="hero-card-badge">💕 Made with Love</div>
+        </div>
+        <div class="floating-emoji fe1">🎈</div>
+        <div class="floating-emoji fe2">💝</div>
+        <div class="floating-emoji fe3">🎉</div>
+        <div class="floating-emoji fe4">✨</div>
+        <div class="floating-emoji fe5">🎂</div>
+      </div>
+    </section>
+
+    <!-- How it Works -->
+    <section class="how-it-works">
+      <h2 class="section-title">How It Works</h2>
+      <p class="section-sub">Create magic in just 5 simple steps</p>
+      <div class="steps-grid">
+        <div class="step-card" style="--i:0">
+          <div class="step-icon">👤</div>
+          <div class="step-num">01</div>
+          <h3>Add Details</h3>
+          <p>Enter names and birthday information for your special one</p>
+        </div>
+        <div class="step-card" style="--i:1">
+          <div class="step-icon">📸</div>
+          <div class="step-num">02</div>
+          <h3>Upload Photos</h3>
+          <p>Add your favorite memories together</p>
+        </div>
+        <div class="step-card" style="--i:2">
+          <div class="step-icon">💌</div>
+          <div class="step-num">03</div>
+          <h3>Write Messages</h3>
+          <p>Share your feelings and personal birthday notes</p>
+        </div>
+        <div class="step-card" style="--i:3">
+          <div class="step-icon">🎬</div>
+          <div class="step-num">04</div>
+          <h3>Preview & Pay</h3>
+          <p>Watch the magic before sharing</p>
+        </div>
+        <div class="step-card" style="--i:4">
+          <div class="step-icon">🔗</div>
+          <div class="step-num">05</div>
+          <h3>Share the Link</h3>
+          <p>Send the link and watch them smile 😊</p>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <p>Made with 💕 by BirthdayBliss &copy; 2025</p>
+    </footer>
+  </div>
+
+  <!-- ========== CREATOR WIZARD ========== -->
+  <div id="creatorPage" class="page">
+
+    <!-- Progress Bar -->
+    <div class="wizard-header">
+      <div class="wizard-logo" onclick="showLanding()">
+        <span>🎂</span> BirthdayBliss
+      </div>
+      <div class="progress-container">
+        <div class="progress-steps" id="progressSteps">
+          <!-- Steps injected by JS -->
+        </div>
+        <div class="progress-bar-bg">
+          <div class="progress-bar-fill" id="progressFill"></div>
+        </div>
+      </div>
+      <div class="step-counter" id="stepCounter">Step 1 of 5</div>
+    </div>
+
+    <!-- Step Content -->
+    <div class="wizard-body">
+      <div class="wizard-inner" id="wizardInner">
+
+        <!-- ===== STEP 1: Names & Occasion ===== -->
+        <div class="step-panel active" id="step1">
+          <div class="step-header">
+            <div class="step-emoji">🎂</div>
+            <h2 class="step-title">Let's Start the Magic!</h2>
+            <p class="step-desc">Tell us about the birthday star and you 💕</p>
+          </div>
+          <div class="form-grid">
+            <div class="form-group">
+              <label class="form-label">
+                <span class="label-icon">🎁</span> Birthday Person's Name *
+              </label>
+              <input type="text" id="birthdayPersonName" class="form-input" placeholder="e.g. Priya, Rahul, Sarah..." maxlength="50" />
+              <div class="input-hint">The star of the show! 🌟</div>
+            </div>
+            <div class="form-group">
+              <label class="form-label">
+                <span class="label-icon">💝</span> Your Name *
+              </label>
+              <input type="text" id="senderName" class="form-input" placeholder="Your name..." maxlength="50" />
+              <div class="input-hint">Who's sending all this love? 💕</div>
+            </div>
+            <div class="form-group">
+              <label class="form-label">
+                <span class="label-icon">📅</span> Birthday Date *
+              </label>
+              <input type="date" id="birthdayDate" class="form-input" />
+              <div class="input-hint">When's the big day? 🎉</div>
+            </div>
+            <div class="form-group">
+              <label class="form-label">
+                <span class="label-icon">🎊</span> Milestone Birthday? <span class="optional-tag">Optional</span>
+              </label>
+              <div class="milestone-grid" id="milestoneGrid">
+                <div class="milestone-btn" data-val="" onclick="selectMilestone(this, '')">None</div>
+                <div class="milestone-btn" data-val="18th" onclick="selectMilestone(this, '18th')">🎉 18th</div>
+                <div class="milestone-btn" data-val="20th" onclick="selectMilestone(this, '20th')">✨ 20th</div>
+                <div class="milestone-btn" data-val="21st" onclick="selectMilestone(this, '21st')">🥳 21st</div>
+                <div class="milestone-btn" data-val="25th" onclick="selectMilestone(this, '25th')">💫 25th</div>
+                <div class="milestone-btn" data-val="30th" onclick="selectMilestone(this, '30th')">🌟 30th</div>
+                <div class="milestone-btn" data-val="40th" onclick="selectMilestone(this, '40th')">👑 40th</div>
+                <div class="milestone-btn" data-val="50th" onclick="selectMilestone(this, '50th')">🎖️ 50th</div>
+                <div class="milestone-btn custom-milestone" onclick="toggleCustomMilestone()">✍️ Custom</div>
+              </div>
+              <input type="text" id="customMilestone" class="form-input mt-10 hidden" placeholder="e.g. 35th, 45th..." maxlength="10" />
+            </div>
+            <div class="form-group full-width">
+              <label class="form-label">
+                <span class="label-icon">💞</span> Relationship
+              </label>
+              <div class="relationship-grid">
+                <div class="rel-btn" data-val="partner" onclick="selectRel(this, 'partner')">💑 Partner</div>
+                <div class="rel-btn" data-val="bestfriend" onclick="selectRel(this, 'bestfriend')">👯 Best Friend</div>
+                <div class="rel-btn" data-val="friend" onclick="selectRel(this, 'friend')">🤝 Friend</div>
+                <div class="rel-btn" data-val="sibling" onclick="selectRel(this, 'sibling')">👨‍👧 Sibling</div>
+                <div class="rel-btn" data-val="parent" onclick="selectRel(this, 'parent')">👨‍👩‍👧 Parent</div>
+                <div class="rel-btn" data-val="colleague" onclick="selectRel(this, 'colleague')">💼 Colleague</div>
+              </div>
+            </div>
+          </div>
+          <div class="step-nav">
+            <div></div>
+            <button class="btn-next" onclick="nextStep(1)">
+              Next: Add Photos <span>→</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- ===== STEP 2: Photos ===== -->
+        <div class="step-panel" id="step2">
+          <div class="step-header">
+            <div class="step-emoji">📸</div>
+            <h2 class="step-title">Add Your Beautiful Memories</h2>
+            <p class="step-desc">Upload photos to make it extra special 💕 (up to 6 photos)</p>
+          </div>
+          <div class="photo-upload-area" id="photoDropZone" ondrop="handleDrop(event)" ondragover="handleDragOver(event)" ondragleave="handleDragLeave(event)">
+            <div class="drop-icon">📷</div>
+            <h3>Drag & Drop Photos Here</h3>
+            <p>or click to browse</p>
+            <input type="file" id="photoInput" multiple accept="image/*" style="display:none" onchange="handlePhotoInput(event)" />
+            <button class="btn-upload" onclick="document.getElementById('photoInput').click()">
+              📁 Browse Photos
+            </button>
+            <p class="upload-hint">JPG, PNG, GIF • Max 5MB each • Up to 6 photos</p>
+          </div>
+
+          <div class="photo-grid" id="photoGrid"></div>
+
+          <div class="step-nav">
+            <button class="btn-back" onclick="prevStep(2)">← Back</button>
+            <button class="btn-next" onclick="nextStep(2)">
+              Next: Write Message <span>→</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- ===== STEP 3: Statements & Thoughts ===== -->
+        <div class="step-panel" id="step3">
+          <div class="step-header">
+            <div class="step-emoji">💌</div>
+            <h2 class="step-title">Share Your Heart</h2>
+            <p class="step-desc">Write what you feel — make it personal 💕</p>
+          </div>
+
+          <div class="form-grid">
+            <div class="form-group full-width">
+              <label class="form-label">
+                <span class="label-icon">💬</span> Birthday Message *
+              </label>
+              <textarea id="birthdayMessage" class="form-textarea" placeholder="Write your heartfelt birthday message here... 
+
+e.g. 'Every moment with you feels like a celebration. You light up every room you walk into, and I feel so lucky to have you in my life...'" rows="5" maxlength="500"></textarea>
+              <div class="char-counter"><span id="msgCount">0</span>/500</div>
+            </div>
+
+            <div class="form-group full-width">
+              <label class="form-label">
+                <span class="label-icon">✨</span> Favorite Memory Together <span class="optional-tag">Optional</span>
+              </label>
+              <textarea id="favoriteMemory" class="form-textarea" placeholder="Share a special memory... 
+
+e.g. 'Remember that road trip where we got completely lost but ended up having the best adventure?'" rows="3" maxlength="300"></textarea>
+              <div class="char-counter"><span id="memCount">0</span>/300</div>
+            </div>
+
+            <div class="form-group full-width">
+              <label class="form-label">
+                <span class="label-icon">🌸</span> What Makes Them Special
+              </label>
+              <div class="qualities-grid" id="qualitiesGrid">
+                <!-- Clickable quality tags -->
+              </div>
+              <input type="text" id="customQuality" class="form-input mt-10" placeholder="Add your own... press Enter" maxlength="30" onkeydown="addCustomQuality(event)" />
+            </div>
+
+            <div class="form-group full-width">
+              <label class="form-label">
+                <span class="label-icon">🎵</span> Mood / Theme
+              </label>
+              <div class="mood-grid">
+                <div class="mood-btn active" data-mood="romantic" onclick="selectMood(this, 'romantic')">
+                  💕 Romantic
+                </div>
+                <div class="mood-btn" data-mood="fun" onclick="selectMood(this, 'fun')">
+                  🎉 Fun & Playful
+                </div>
+                <div class="mood-btn" data-mood="emotional" onclick="selectMood(this, 'emotional')">
+                  🥹 Emotional
+                </div>
+                <div class="mood-btn" data-mood="classy" onclick="selectMood(this, 'classy')">
+                  ✨ Classy & Elegant
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="step-nav">
+            <button class="btn-back" onclick="prevStep(3)">← Back</button>
+            <button class="btn-next" onclick="nextStep(3)">
+              Next: Final Note <span>→</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- ===== STEP 4: Final Note ===== -->
+        <div class="step-panel" id="step4">
+          <div class="step-header">
+            <div class="step-emoji">📝</div>
+            <h2 class="step-title">Your Closing Note</h2>
+            <p class="step-desc">End with something sweet — the last words they'll see 🌹</p>
+          </div>
+
+          <div class="form-grid">
+            <div class="form-group full-width">
+              <label class="form-label">
+                <span class="label-icon">💌</span> Final Note / Closing Message *
+              </label>
+              <textarea id="finalNote" class="form-textarea large-textarea" placeholder="Write your closing message...
+
+e.g. 'No matter where life takes us, know that I'll always be here cheering for you. You deserve every happiness that comes your way. Happy Birthday, my love. Here's to you and all your beautiful dreams. 🌹
+
+Forever yours,
+[Your Name]'" rows="8" maxlength="600"></textarea>
+              <div class="char-counter"><span id="noteCount">0</span>/600</div>
+            </div>
+
+            <div class="form-group full-width">
+              <label class="form-label">
+                <span class="label-icon">✍️</span> Closing Sign-off
+              </label>
+              <div class="signoff-grid">
+                <div class="signoff-btn" onclick="selectSignoff(this, 'Forever Yours 💕')">Forever Yours 💕</div>
+                <div class="signoff-btn" onclick="selectSignoff(this, 'With All My Love 🌹')">With All My Love 🌹</div>
+                <div class="signoff-btn" onclick="selectSignoff(this, 'Always & Forever ✨')">Always & Forever ✨</div>
+                <div class="signoff-btn" onclick="selectSignoff(this, 'Your #1 Fan 🎉')">Your #1 Fan 🎉</div>
+                <div class="signoff-btn" onclick="selectSignoff(this, 'Yours Truly 💖')">Yours Truly 💖</div>
+                <div class="signoff-btn" onclick="selectSignoff(this, 'With Warmth 🌸')">With Warmth 🌸</div>
+              </div>
+              <input type="text" id="signoffText" class="form-input mt-10" placeholder="Or write your own sign-off..." maxlength="50" />
+            </div>
+
+            <div class="form-group full-width">
+              <label class="form-label">
+                <span class="label-icon">🎨</span> Video Theme Color
+              </label>
+              <div class="color-picker-grid">
+                <div class="color-opt active" data-color="pink" style="--c:#FF6B9D" onclick="selectColor(this, 'pink')">
+                  <div class="color-circle"></div>
+                  <span>Rose Pink</span>
+                </div>
+                <div class="color-opt" data-color="purple" style="--c:#A855F7" onclick="selectColor(this, 'purple')">
+                  <div class="color-circle"></div>
+                  <span>Lavender</span>
+                </div>
+                <div class="color-opt" data-color="gold" style="--c:#F59E0B" onclick="selectColor(this, 'gold')">
+                  <div class="color-circle"></div>
+                  <span>Golden</span>
+                </div>
+                <div class="color-opt" data-color="red" style="--c:#EF4444" onclick="selectColor(this, 'red')">
+                  <div class="color-circle"></div>
+                  <span>Crimson</span>
+                </div>
+                <div class="color-opt" data-color="teal" style="--c:#14B8A6" onclick="selectColor(this, 'teal')">
+                  <div class="color-circle"></div>
+                  <span>Teal</span>
+                </div>
+                <div class="color-opt" data-color="blue" style="--c:#3B82F6" onclick="selectColor(this, 'blue')">
+                  <div class="color-circle"></div>
+                  <span>Sky Blue</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="step-nav">
+            <button class="btn-back" onclick="prevStep(4)">← Back</button>
+            <button class="btn-next preview-btn" onclick="nextStep(4)">
+              🎬 Preview My Wish <span>→</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- ===== STEP 5: Preview ===== -->
+        <div class="step-panel" id="step5">
+          <div class="step-header">
+            <div class="step-emoji">🎬</div>
+            <h2 class="step-title">Preview Your Birthday Wish</h2>
+            <p class="step-desc">Here's how it looks! Complete payment to get the shareable link 🔗</p>
+          </div>
+
+          <!-- Preview Player -->
+          <div class="preview-container" id="previewContainer">
+            <div class="preview-player" id="previewPlayer">
+              <div class="preview-scene" id="previewScene">
+                <!-- Dynamic preview content -->
+              </div>
+              <div class="preview-controls">
+                <button class="ctrl-btn" id="playPauseBtn" onclick="togglePlay()">▶ Play</button>
+                <div class="progress-track">
+                  <div class="progress-played" id="previewProgress"></div>
+                </div>
+                <span class="preview-time" id="previewTime">0:00 / 0:30</span>
+              </div>
+            </div>
+            <div class="preview-overlay" id="previewOverlay">
+              <div class="preview-lock">
+                <div class="lock-icon">🔒</div>
+                <h3>Full Preview Available!</h3>
+                <p>You've seen a 5-second preview. Complete payment to unlock the full birthday wish video and get your shareable link!</p>
+                <button class="btn-unlock" onclick="goToPayment()">
+                  💳 Unlock & Get Link — ₹99
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="preview-details" id="previewDetails">
+            <!-- Filled by JS -->
+          </div>
+
+          <div class="step-nav">
+            <button class="btn-back" onclick="prevStep(5)">← Edit</button>
+            <button class="btn-primary" onclick="goToPayment()">
+              💳 Proceed to Payment
+            </button>
+          </div>
+        </div>
+
+      </div><!-- /wizard-inner -->
+    </div><!-- /wizard-body -->
+  </div><!-- /creatorPage -->
+
+  <!-- ========== PAYMENT PAGE ========== -->
+  <div id="paymentPage" class="page">
+    <div class="payment-container">
+      <div class="payment-card">
+        <div class="payment-header">
+          <span class="payment-logo">🎂 BirthdayBliss</span>
+          <h2>Complete Your Order</h2>
+          <p>Unlock the full birthday wish & get your shareable link</p>
+        </div>
+
+        <div class="order-summary">
+          <h3>Order Summary</h3>
+          <div class="order-item">
+            <span>🎬 Personalized Birthday Video</span>
+            <span>₹79</span>
+          </div>
+          <div class="order-item">
+            <span>🔗 Shareable Link (Lifetime)</span>
+            <span>₹20</span>
+          </div>
+          <div class="order-divider"></div>
+          <div class="order-total">
+            <span>Total</span>
+            <span class="total-price">₹99</span>
+          </div>
+        </div>
+
+        <div class="payment-methods">
+          <h3>Pay With</h3>
+          <div class="pay-options">
+            <div class="pay-opt active" onclick="selectPayment(this, 'upi')">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/UPI-Logo-vector.svg/240px-UPI-Logo-vector.svg.png" alt="UPI" style="height:28px" />
+              UPI
+            </div>
+            <div class="pay-opt" onclick="selectPayment(this, 'card')">
+              💳 Credit/Debit Card
+            </div>
+            <div class="pay-opt" onclick="selectPayment(this, 'netbanking')">
+              🏦 Net Banking
+            </div>
+          </div>
+
+          <!-- UPI Section -->
+          <div class="payment-form" id="payUPI">
+            <div class="form-group">
+              <label class="form-label">UPI ID</label>
+              <input type="text" class="form-input" id="upiId" placeholder="yourname@paytm / @gpay" />
+            </div>
+            <div class="upi-apps">
+              <div class="upi-app" onclick="fillUPIApp('GPay')">
+                <span>Google Pay</span>
+              </div>
+              <div class="upi-app" onclick="fillUPIApp('PhonePe')">
+                <span>PhonePe</span>
+              </div>
+              <div class="upi-app" onclick="fillUPIApp('Paytm')">
+                <span>Paytm</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="payment-form hidden" id="payCard">
+            <div class="form-group">
+              <label class="form-label">Card Number</label>
+              <input type="text" class="form-input" placeholder="1234 5678 9012 3456" maxlength="19" oninput="formatCard(this)" />
+            </div>
+            <div class="two-col">
+              <div class="form-group">
+                <label class="form-label">Expiry</label>
+                <input type="text" class="form-input" placeholder="MM/YY" maxlength="5" />
+              </div>
+              <div class="form-group">
+                <label class="form-label">CVV</label>
+                <input type="text" class="form-input" placeholder="123" maxlength="3" />
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Name on Card</label>
+              <input type="text" class="form-input" placeholder="Your Full Name" />
+            </div>
+          </div>
+
+          <div class="payment-form hidden" id="payNetbanking">
+            <div class="form-group">
+              <label class="form-label">Select Bank</label>
+              <select class="form-input">
+                <option>State Bank of India</option>
+                <option>HDFC Bank</option>
+                <option>ICICI Bank</option>
+                <option>Axis Bank</option>
+                <option>Kotak Bank</option>
+                <option>Other</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <button class="btn-pay" onclick="processPayment()">
+          <span id="payBtnText">🔒 Pay ₹99 Securely</span>
+        </button>
+
+        <div class="secure-note">
+          🔒 256-bit SSL encrypted · Instant link delivery
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== SUCCESS PAGE ========== -->
+  <div id="successPage" class="page">
+    <div class="success-container">
+      <div class="success-confetti" id="successConfetti"></div>
+      <div class="success-card">
+        <div class="success-icon">🎉</div>
+        <h1 class="success-title">Your Birthday Wish is Live!</h1>
+        <p class="success-desc">Share this magical link with <span id="successName" class="highlight-name">your friend</span> 💕</p>
+
+        <div class="share-link-box">
+          <div class="share-link-url" id="shareUrl">https://birthdaybliss.app/wish/abc123xyz</div>
+          <button class="btn-copy" id="copyBtn" onclick="copyLink()">📋 Copy</button>
+        </div>
+
+        <div class="share-actions">
+          <button class="share-btn whatsapp" onclick="shareVia('whatsapp')">
+            💬 WhatsApp
+          </button>
+          <button class="share-btn instagram" onclick="shareVia('instagram')">
+            📸 Instagram
+          </button>
+          <button class="share-btn email" onclick="shareVia('email')">
+            📧 Email
+          </button>
+          <button class="share-btn sms" onclick="shareVia('sms')">
+            📱 SMS
+          </button>
+        </div>
+
+        <div class="wish-preview-mini" id="wishPreviewMini">
+          <!-- mini preview -->
+        </div>
+
+        <button class="btn-secondary mt-20" onclick="createAnother()">
+          ✨ Create Another Wish
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== BIRTHDAY VIDEO PAGE ========== -->
+  <div id="videoPage" class="page">
+    <div class="video-scene" id="videoScene">
+      <canvas id="birthdayCanvas"></canvas>
+      <div class="video-overlay-content" id="videoOverlay">
+        <!-- Dynamic birthday animation -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Confetti Canvas -->
+  <canvas id="confettiCanvas" class="confetti-canvas"></canvas>
+
+  <!-- Processing Modal -->
+  <div class="modal-overlay hidden" id="processingModal">
+    <div class="processing-modal">
+      <div class="processing-spinner">🎂</div>
+      <h3>Creating your birthday magic...</h3>
+      <p id="processingText">Gathering all the love...</p>
+      <div class="processing-bar">
+        <div class="processing-fill" id="processingFill"></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
