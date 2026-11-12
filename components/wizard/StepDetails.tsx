@@ -64,7 +64,7 @@ export default function StepDetails() {
         <Input
           label="What do you call them?"
           icon="🧸"
-          placeholder="e.g. Anu, Babu, Chotu… (shown in the surprise)"
+          placeholder="e.g. Anu, Babu, Baby, Jaan… (shown in the surprise)"
           value={formData.nickname}
           onChange={e => update({ nickname: e.target.value })}
           maxLength={30}
